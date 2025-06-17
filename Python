@@ -6,9 +6,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Configurações de email
-EMAIL_REMETENTE = "arduinosensor9@gmail.com"
-EMAIL_SENHA = "xgrvfrxpbgynbnpa" 
-EMAIL_DESTINO = "namemr564@gmail.com"
+EMAIL_REMETENTE = "arduinos****9@gmail.com" #email de envio.
+EMAIL_SENHA = "xgrvfr***ynbnpa" # Senha do para o Pyhton enviar as mensagens, precisar gerar uma atravez de senha de app. Vamos apagar depois que apresentar o projeto.
+EMAIL_DESTINO = "name*****@gmail.com" # E-mail do recebedor. 
 
 
 # Configuração da porta serial
