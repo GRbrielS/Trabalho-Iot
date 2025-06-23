@@ -69,7 +69,4 @@ Imagem do protótipo montado:
 * Gabriel Sinis da Silva
 * Jorge Luiz de França Mendes da Silva Júnior
 * Eduardo Scarpini Lessa Fonseca
-![manofrança1](https://github.com/user-attachments/assets/bb1fee5c-a75b-4b48-840d-8d95c7c51894)
-![Uploading edu.jpeg…]()
 
----
