@@ -17,7 +17,7 @@ time.sleep(2)  # Aguarda conexão estabilizar
 
 def dentro_do_horario():
     agora = datetime.now().time()
-    return agora.hour >= 8 or agora.hour < 5
+    return agora.hour >= 8 or agora.hour < 5 #Mudar o horario para funcionamento do sistema.
 
 def enviar_email():
     agora = datetime.now()
