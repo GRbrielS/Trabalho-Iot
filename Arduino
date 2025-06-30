@@ -3,9 +3,14 @@ const int ledVermelho = 13;    // LED vermelho
 const int buzzer = 12;         // Buzzer ativo
 
 int estadoAnterior = HIGH;
+bool portaFechada = true;
+
+unsigned long ultimoTempoPiscar = 0;
+const unsigned long intervaloPiscar = 1000;
+bool estadoLed = false;
 
 void setup() {
-  pinMode(sensorHall, INPUT_PULLUP);  // Sensor Hall com resistor pull-up
+  pinMode(sensorHall, INPUT_PULLUP);
   pinMode(ledVermelho, OUTPUT);
   pinMode(buzzer, OUTPUT);
   Serial.begin(9600);
@@ -16,18 +21,31 @@ void loop() {
 
   if (estadoAtual != estadoAnterior) {
     if (estadoAtual == LOW) {
-      // Ímã se afastou → Porta aberta
-      digitalWrite(ledVermelho, LOW);    // Apaga LED
+      // Porta fechada
+      digitalWrite(ledVermelho, LOW);    // LED apagado
       digitalWrite(buzzer, LOW);        // Liga buzzer
-      Serial.println("ALERTA: Porta aberta");
-    } else {
-      // Ímã presente → Porta fechada
-      digitalWrite(ledVermelho, HIGH);   // Acende LED
-      digitalWrite(buzzer, HIGH);         // Desliga buzzer
+      portaFechada = false;
       Serial.println("Porta fechada");
+    } else {
+      // Porta aberta
+      digitalWrite(buzzer, HIGH);         // Desliga buzzer
+      portaFechada = true;
+      Serial.println("ALERTA: Porta aberta");
     }
     estadoAnterior = estadoAtual;
   }
+
+  // Piscar o LED se a porta estiver fechada
+  if (portaFechada) {
+    if (millis() - ultimoTempoPiscar >= intervaloPiscar) {
+      estadoLed = !estadoLed;
+      digitalWrite(ledVermelho, estadoLed);
+      ultimoTempoPiscar = millis();
+    }
+  } else {
+    digitalWrite(ledVermelho, LOW); // Garante LED desligado se porta aberta
+  }
+}
 
   delay(100); // Pequeno atraso para estabilidade
 }
