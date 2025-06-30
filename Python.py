@@ -6,9 +6,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # Configurações de email
-EMAIL_REMETENTE = "arduinosensor9@gmail.com"
-EMAIL_SENHA = "bfsgkasoatrwmmtc" 
-EMAIL_DESTINO = "namemr564@gmail.com"
+EMAIL_REMETENTE = "ard####@gmail.com"
+EMAIL_SENHA = "bfsg####rwmmtc" 
+EMAIL_DESTINO = "na#####@gmail.com"
 
 
 # Configuração da porta serial
