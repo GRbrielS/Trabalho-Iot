@@ -23,19 +23,19 @@ void loop() {
     if (estadoAtual == LOW) {
       // Porta fechada
       digitalWrite(ledVermelho, LOW);    // LED apagado
-      digitalWrite(buzzer, LOW);        // Liga buzzer
+      digitalWrite(buzzer, LOW);        // Desliga buzzer
       portaFechada = false;
       Serial.println("Porta fechada");
     } else {
       // Porta aberta
-      digitalWrite(buzzer, HIGH);         // Desliga buzzer
+      digitalWrite(buzzer, HIGH);         // Liga buzzer
       portaFechada = true;
       Serial.println("ALERTA: Porta aberta");
     }
     estadoAnterior = estadoAtual;
   }
 
-  // Piscar o LED se a porta estiver fechada
+  // Piscar o LED se a porta estiver aberta
   if (portaFechada) {
     if (millis() - ultimoTempoPiscar >= intervaloPiscar) {
       estadoLed = !estadoLed;
@@ -43,7 +43,7 @@ void loop() {
       ultimoTempoPiscar = millis();
     }
   } else {
-    digitalWrite(ledVermelho, LOW); // Garante LED desligado se porta aberta
+    digitalWrite(ledVermelho, LOW); // Garante LED desligado se porta fechar
   }
 }
 
